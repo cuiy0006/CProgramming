@@ -1,0 +1,1 @@
+add_executable(visible_symbol visible_symbol.cc)

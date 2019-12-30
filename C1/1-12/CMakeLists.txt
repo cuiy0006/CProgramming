@@ -1,0 +1,1 @@
+add_executable(one_word_per_line one_word_per_line.cc)

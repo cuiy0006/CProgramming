@@ -1,0 +1,1 @@
+add_executable(hello_world_2 hello_world.cc)

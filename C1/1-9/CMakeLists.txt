@@ -1,0 +1,1 @@
+add_executable(truncate_blank truncate_blank.cc)
