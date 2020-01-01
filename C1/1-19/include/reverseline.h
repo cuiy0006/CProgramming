@@ -1,0 +1,1 @@
+void reverseline(int left, int right, char c[]);

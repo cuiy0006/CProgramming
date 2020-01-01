@@ -1,0 +1,1 @@
+int remove_trailing_space(char s[]);
