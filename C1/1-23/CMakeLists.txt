@@ -1,0 +1,1 @@
+add_executable(remove_comments remove_comments.cc)
