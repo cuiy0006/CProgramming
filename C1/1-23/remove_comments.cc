@@ -5,6 +5,7 @@ int main(){
     char last = '\0';
     bool single_comment = false;
     bool multi_comment = false;
+    bool multi_comment_newline = false;
     bool double_quote = false;
     bool single_quote = false;
     while((c = getchar()) != EOF){
@@ -20,7 +21,11 @@ int main(){
         if(multi_comment){
             if(last == '*' && c == '/'){
                 multi_comment = false;
+            } else if(c == '\n' && multi_comment_newline){
+                 putchar('\n');
+                 multi_comment_newline = false;
             }
+            
             last = c;
             continue;
         }
@@ -35,14 +40,15 @@ int main(){
                 single_quote = !single_quote;
             }
             putchar('\'');
+        } else if(single_quote || double_quote){
+            putchar(c);
         } else if(c == '/' && last == '/'){
             single_comment = true;
         } else if(c == '*' && last == '/'){
             multi_comment = true;
-        } else {
-            if(single_comment || double_quote || c != '/'){
-                putchar(c);
-            }
+            multi_comment_newline = true;
+        } else if(c != '/'){
+            putchar(c);
         }
         last = c;
     }
