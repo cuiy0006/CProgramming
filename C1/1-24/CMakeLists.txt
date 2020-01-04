@@ -1,0 +1,1 @@
+add_executable(valid_rudimentary valid_rudimentary.cc)
