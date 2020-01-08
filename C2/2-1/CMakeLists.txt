@@ -1,0 +1,1 @@
+add_executable(range_of_basic_type range_of_basic_type.cc)
