@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include "htoi.h"
 
 int htoi(char* h){
     int i = 0;
@@ -22,10 +23,4 @@ int htoi(char* h){
         ++i;
     }
     return res;
-}
-
-#include <stdio.h>
-int main(){
-    char c1[] = "0xff";
-    printf("%d", htoi(c1));
 }
