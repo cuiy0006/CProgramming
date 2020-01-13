@@ -1,1 +1,1 @@
-int htoi(char* h);
+int htoi(char h[]);

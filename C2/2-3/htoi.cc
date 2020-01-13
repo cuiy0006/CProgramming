@@ -1,7 +1,7 @@
 #include <ctype.h>
 #include "htoi.h"
 
-int htoi(char* h){
+int htoi(char h[]){
     int i = 0;
     if(*h == '0' && (*(h + 1) == 'x' || *(h + 1) == 'X')){
         i += 2;
