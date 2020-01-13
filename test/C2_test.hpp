@@ -4,6 +4,8 @@
 #include "../C2/2-6/setbits.h"
 #include "../C2/2-7/invert.h"
 #include "../C2/2-8/rightrot.h"
+#include "../C2/2-9/bitcount.h"
+#include "../C2/2-10/lower.h"
 #include "gtest/gtest.h"
 #include <string.h>
 #include <iostream>
@@ -90,4 +92,18 @@ TEST(C2, Q8){
     EXPECT_EQ(0xD1234ABC, rightrot(x0, 4));
     EXPECT_EQ(0xCD1234AB, rightrot(x0, 8));
     EXPECT_EQ(0xCD1234AB, rightrot(x0, 40));
+}
+
+TEST(C2, Q9){
+    EXPECT_EQ(bitcount_old(1234), bitcount(1234));
+    EXPECT_EQ(bitcount_old(4321), bitcount(4321));
+    EXPECT_EQ(bitcount_old(0), bitcount(0));
+    EXPECT_EQ(bitcount_old(0xFFFFFFFF), bitcount(0xFFFFFFFF));
+}
+
+TEST(C2, Q10){
+    EXPECT_EQ('a', lower('A'));
+    EXPECT_EQ('a', lower('a'));
+    EXPECT_EQ('z', lower('Z'));
+    EXPECT_EQ('1', lower('1'));
 }

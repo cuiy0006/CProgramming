@@ -28,7 +28,7 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 
 project(CProgramming)
 
-#add_subdirectory(C1)
+add_subdirectory(C1)
 add_subdirectory(C2)
 
 add_subdirectory(test)

@@ -14,6 +14,8 @@ add_executable(test_all
                 ../C2/2-5/any.cc
                 ../C2/2-6/setbits.cc
                 ../C2/2-7/invert.cc
-                ../C2/2-8/rightrot.cc)
+                ../C2/2-8/rightrot.cc
+                ../C2/2-9/bitcount.cc
+                ../C2/2-10/lower.cc)
 target_link_libraries(test_all gtest_main)
 add_test(NAME test_all COMMAND test_all)
