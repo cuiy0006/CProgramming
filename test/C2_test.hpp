@@ -1,6 +1,9 @@
 #include "../C2/2-3/htoi.h"
 #include "../C2/2-4/squeeze.h"
 #include "../C2/2-5/any.h"
+#include "../C2/2-6/setbits.h"
+#include "../C2/2-7/invert.h"
+#include "../C2/2-8/rightrot.h"
 #include "gtest/gtest.h"
 #include <string.h>
 #include <iostream>
@@ -57,4 +60,34 @@ TEST(C2, Q5){
     char s12[] = "125456789";
     char s22[] = "555";
     EXPECT_EQ(2, any(s12, s22));
+}
+
+TEST(C2, Q6){
+    unsigned x0 = 0b111111111;
+    unsigned y0 = 0b000000000;
+    EXPECT_EQ(0b110000111, setbits(x0, 3, 4, y0));
+
+    unsigned x1 = 0b111111111;
+    unsigned y1 = 0b000000000;
+    EXPECT_EQ(0b111111111, setbits(x1, 3, 0, y1));
+
+    unsigned x2 = 0b111111111;
+    unsigned y2 = 0b000000000;
+    EXPECT_EQ(0b111111000, setbits(x2, 0, 3, y2));
+}
+
+TEST(C2, Q7){
+    unsigned x0 = 0b111111111;
+    EXPECT_EQ(0b110000111, invert(x0, 3, 4));
+
+    unsigned x1 = 0b101010101;
+    EXPECT_EQ(0b100101101, invert(x1, 3, 4));
+}
+
+TEST(C2, Q8){
+    unsigned x0 = 0x1234ABCD;
+    EXPECT_EQ(0x1234ABCD, rightrot(x0, 0));
+    EXPECT_EQ(0xD1234ABC, rightrot(x0, 4));
+    EXPECT_EQ(0xCD1234AB, rightrot(x0, 8));
+    EXPECT_EQ(0xCD1234AB, rightrot(x0, 40));
 }

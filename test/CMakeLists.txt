@@ -11,6 +11,9 @@ add_executable(test_all
                 test_all.cpp 
                 ../C2/2-3/htoi.cc
                 ../C2/2-4/squeeze.cc
-                ../C2/2-5/any.cc)
+                ../C2/2-5/any.cc
+                ../C2/2-6/setbits.cc
+                ../C2/2-7/invert.cc
+                ../C2/2-8/rightrot.cc)
 target_link_libraries(test_all gtest_main)
 add_test(NAME test_all COMMAND test_all)
