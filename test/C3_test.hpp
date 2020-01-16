@@ -17,6 +17,6 @@ TEST(C3, Q1){
     EXPECT_EQ(-1, binsearch(3, v2, 7));
     EXPECT_EQ(-1, binsearch(4, v2, 7));
 
-    int v3[] = {1, 2, 3, 3, 3, 6, 7};
-    EXPECT_EQ(2, binsearch(3, v3, 7));
+    int v3[] = {2, 3, 3, 3, 3, 6, 7};
+    EXPECT_EQ(1, binsearch(3, v3, 7));
 }
