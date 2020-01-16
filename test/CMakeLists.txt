@@ -16,6 +16,7 @@ add_executable(test_all
                 ../C2/2-7/invert.cc
                 ../C2/2-8/rightrot.cc
                 ../C2/2-9/bitcount.cc
-                ../C2/2-10/lower.cc)
+                ../C2/2-10/lower.cc
+                ../C3/3-1/binsearch.cc)
 target_link_libraries(test_all gtest_main)
 add_test(NAME test_all COMMAND test_all)
