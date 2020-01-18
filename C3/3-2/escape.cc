@@ -21,6 +21,7 @@ void escape(char s[], char t[]){
         }
         ++i;
     }
+    t[j] = '\0';
 }
 
 void escape_reverse(char s[], char t[]){
@@ -44,4 +45,5 @@ void escape_reverse(char s[], char t[]){
         }
         ++i;
     }
+    t[j] = '\0';
 }

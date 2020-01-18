@@ -3,6 +3,8 @@
 #include <iostream>
 #include "../C3/3-1/binsearch.h"
 #include "../C3/3-2/escape.h"
+#include "../C3/3-3/expand.h"
+
 
 void printStr(char s[]){
     int i = 0;
@@ -36,6 +38,32 @@ TEST(C3, Q2){
     char expect1[] = "abc\\nd e\\tfgh";
     escape(s, t1);
     escape_reverse(t1, t2);
-    EXPECT_TRUE(strcmp(t1, expect1));
-    EXPECT_TRUE(strcmp(t2, s));
+    EXPECT_EQ(0, strcmp(t1, expect1));
+    EXPECT_EQ(0, strcmp(t2, s));
+}
+
+TEST(C3, Q3){
+    char s1_0[] = "a-b-c";
+    char s2_0[1024];
+    char expect_0[] = "abc";
+    expand(s1_0, s2_0);
+    EXPECT_EQ(0, strcmp(s2_0, expect_0));
+
+    char s1_1[] = "a-z0-9";
+    char s2_1[1024];
+    char expect_1[] = "abcdefghijklmnopqrstuvwxyz0123456789";
+    expand(s1_1, s2_1);
+    EXPECT_EQ(0, strcmp(s2_1, expect_1));
+
+    char s1_2[] = "---a-z----";
+    char s2_2[1024];
+    char expect_2[] = "---abcdefghijklmnopqrstuvwxyz----";
+    expand(s1_2, s2_2);
+    EXPECT_EQ(0, strcmp(s2_2, expect_2));
+
+    char s1_3[] = "--a-d0-3E-G--";
+    char s2_3[1024];
+    char expect_3[] = "--abcd0123EFG--";
+    expand(s1_3, s2_3);
+    EXPECT_EQ(0, strcmp(s2_3, expect_3));
 }
