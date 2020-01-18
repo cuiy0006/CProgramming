@@ -1,9 +1,11 @@
 #include "gtest/gtest.h"
 #include <string.h>
 #include <iostream>
+#include <limits.h>
 #include "../C3/3-1/binsearch.h"
 #include "../C3/3-2/escape.h"
 #include "../C3/3-3/expand.h"
+#include "../C3/3-4/itoa.h"
 
 
 void printStr(char s[]){
@@ -66,4 +68,24 @@ TEST(C3, Q3){
     char expect_3[] = "--abcd0123EFG--";
     expand(s1_3, s2_3);
     EXPECT_EQ(0, strcmp(s2_3, expect_3));
+}
+
+TEST(C3, Q4){
+    int n0 = INT_MIN;
+    char s0[1024];
+    char expect0[] = "-2147483648";
+    itoa(n0, s0);
+    EXPECT_EQ(0, strcmp(s0, expect0));
+
+    int n1 = INT_MAX;
+    char s1[1024];
+    char expect1[] = "2147483647";
+    itoa(n1, s1);
+    EXPECT_EQ(0, strcmp(s1, expect1));
+
+    int n2 = 0;
+    char s2[1024];
+    char expect2[] = "0";
+    itoa(n2, s2);
+    EXPECT_EQ(0, strcmp(s2, expect2));
 }
