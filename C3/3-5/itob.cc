@@ -12,11 +12,11 @@ void itob(int n, char s[], int b){
     }
     
     while(n != 0){
-        int reminder = n % b * sign;
-        if(reminder > 9){
-            s[i++] = reminder - 10 + 'a';
+        int remainder = n % b * sign;
+        if(remainder > 9){
+            s[i++] = remainder - 10 + 'a';
         } else {
-            s[i++] = reminder + '0';
+            s[i++] = remainder + '0';
         }
         n = n / b;
     }
