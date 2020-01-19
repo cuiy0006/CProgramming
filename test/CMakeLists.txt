@@ -8,7 +8,8 @@ endif()
 
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(test_all 
-                test_all.cpp 
+                test_all.cpp
+                ../util/util.cc
                 ../C2/2-3/htoi.cc
                 ../C2/2-4/squeeze.cc
                 ../C2/2-5/any.cc
@@ -20,6 +21,11 @@ add_executable(test_all
                 ../C3/3-1/binsearch.cc
                 ../C3/3-2/escape.cc
                 ../C3/3-3/expand.cc
-                ../C3/3-4/itoa.cc)
+                ../C3/3-4/itoa.cc
+                ../C3/3-5/itob.cc
+                ../C3/3-6/itoa_width.cc)
+target_include_directories(test_all PUBLIC
+                           ../util/
+                           )
 target_link_libraries(test_all gtest_main)
 add_test(NAME test_all COMMAND test_all)

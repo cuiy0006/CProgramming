@@ -1,7 +1,7 @@
-#include "itoa.h"
+#include "itoa_width.h"
 #include "util.h"
 
-void itoa(int n, char s[]){
+void itoa_width(int n, char s[], int w){
     int i = 0;
     int sign = 1;
     if(n < 0){
@@ -22,4 +22,6 @@ void itoa(int n, char s[]){
     } else {
         reverse(s, 0, i - 1);
     }
+
+    pad_left(s, i, w, ' ');
 }

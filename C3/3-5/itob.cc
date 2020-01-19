@@ -1,7 +1,7 @@
-#include "itoa.h"
+#include "itob.h"
 #include "util.h"
 
-void itoa(int n, char s[]){
+void itob(int n, char s[], int b){
     int i = 0;
     int sign = 1;
     if(n < 0){
@@ -12,8 +12,13 @@ void itoa(int n, char s[]){
     }
     
     while(n != 0){
-        s[i++] = n % 10 * sign + '0';
-        n = n / 10;
+        int reminder = n % b * sign;
+        if(reminder > 9){
+            s[i++] = reminder - 10 + 'a';
+        } else {
+            s[i++] = reminder + '0';
+        }
+        n = n / b;
     }
     s[i] = '\0';
 

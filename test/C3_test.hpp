@@ -2,19 +2,13 @@
 #include <string.h>
 #include <iostream>
 #include <limits.h>
+#include "../util/util.h"
 #include "../C3/3-1/binsearch.h"
 #include "../C3/3-2/escape.h"
 #include "../C3/3-3/expand.h"
 #include "../C3/3-4/itoa.h"
-
-
-void printStr(char s[]){
-    int i = 0;
-    while(s[i] != '\0'){
-        putchar(s[i++]);
-    }
-    printf("\n-----------------------------------\n");
-}
+#include "../C3/3-5/itob.h"
+#include "../C3/3-6/itoa_width.h"
 
 TEST(C3, Q1){
     int v1[] = {1, 2, 3, 4, 5, 6, 7};
@@ -88,4 +82,61 @@ TEST(C3, Q4){
     char expect2[] = "0";
     itoa(n2, s2);
     EXPECT_EQ(0, strcmp(s2, expect2));
+}
+
+TEST(C3, Q5){
+    int n0 = INT_MIN;
+    char s0_2[1024];
+    char s0_8[1024];
+    char s0_16[1024];
+    char expect0_2[] = "-10000000000000000000000000000000";
+    char expect0_8[] = "-20000000000";
+    char expect0_16[] = "-80000000";
+    itob(n0, s0_2, 2);
+    itob(n0, s0_8, 8);
+    itob(n0, s0_16, 16);
+    EXPECT_EQ(0, strcmp(s0_2, expect0_2));
+    EXPECT_EQ(0, strcmp(s0_8, expect0_8));
+    EXPECT_EQ(0, strcmp(s0_16, expect0_16));
+
+    int n1 = 1234567890;
+    char s1_2[1024];
+    char s1_8[1024];
+    char s1_16[1024];
+    char expect1_2[] = "1001001100101100000001011010010";
+    char expect1_8[] = "11145401322";
+    char expect1_16[] = "499602d2";
+
+    itob(n1, s1_2, 2);
+    itob(n1, s1_8, 8);
+    itob(n1, s1_16, 16);
+    EXPECT_EQ(0, strcmp(s1_2, expect1_2));
+    EXPECT_EQ(0, strcmp(s1_8, expect1_8));
+    EXPECT_EQ(0, strcmp(s1_16, expect1_16));
+}
+
+TEST(C3, Q6){
+    int n0 = INT_MIN;
+    char s0[1024];
+    char expect0[] = "    -2147483648";
+    itoa_width(n0, s0, 15);
+    EXPECT_EQ(0, strcmp(s0, expect0));
+
+    int n1 = INT_MAX;
+    char s1[1024];
+    char expect1[] = "     2147483647";
+    itoa_width(n1, s1, 15);
+    EXPECT_EQ(0, strcmp(s1, expect1));
+
+    int n2 = 0;
+    char s2[1024];
+    char expect2[] = " 0";
+    itoa_width(n2, s2, 2);
+    EXPECT_EQ(0, strcmp(s2, expect2));
+
+    int n3 = -1024;
+    char s3[1024];
+    char expect3[] = "-1024";
+    itoa_width(n3, s3, 5);
+    EXPECT_EQ(0, strcmp(s3, expect3));
 }
