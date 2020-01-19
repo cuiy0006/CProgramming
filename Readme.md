@@ -13,5 +13,5 @@ build/test/test_all
   
 OR  
   
-For some cases with input, manually run main under their own directory
+For some cases needing standard input, manually run executable under their directory
 
