@@ -23,7 +23,9 @@ add_executable(test_all
                 ../C3/3-3/expand.cc
                 ../C3/3-4/itoa.cc
                 ../C3/3-5/itob.cc
-                ../C3/3-6/itoa_width.cc)
+                ../C3/3-6/itoa_width.cc
+                ../C4/4-1/strrindex.cc
+                ../C4/4-2/atof.cc)
 target_include_directories(test_all PUBLIC
                            ../util/
                            )

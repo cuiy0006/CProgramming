@@ -34,3 +34,20 @@ void printStr(char s[]){
     }
     printf("\n-----------------------------------\n");
 }
+
+int atoi(char s[], int start){
+    int i = start;
+    int sign = 1;
+    if(s[i] == '+'){
+        ++i;
+    } else if(s[i] == '-'){
+        sign = -1;
+        ++i;
+    }
+    int res = 0;
+    while(s[i] != '\0'){
+        res = res * 10 + (s[i] - '0');
+        ++i;
+    }
+    return sign * res;
+}

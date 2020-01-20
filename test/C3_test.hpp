@@ -1,6 +1,5 @@
 #include "gtest/gtest.h"
 #include <string.h>
-#include <iostream>
 #include <limits.h>
 #include "../util/util.h"
 #include "../C3/3-1/binsearch.h"
