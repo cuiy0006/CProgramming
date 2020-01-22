@@ -1,8 +1,8 @@
 #include <ctype.h>
 #include <stdio.h>
 
-#define NUMBER 0
-#define COMMAND 1
+#define NUMBER '0'
+#define COMMAND '1'
 
 int getch(void);
 void ungetch(int c);

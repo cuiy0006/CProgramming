@@ -4,8 +4,8 @@
 #include <string.h>
 
 #define MAXOP 100
-#define NUMBER 0
-#define COMMAND 1
+#define NUMBER '0'
+#define COMMAND '1'
 
 int getop(char []);
 void push(double);
@@ -58,6 +58,10 @@ main(){
             }
             else
                 printf("error: unknown command %s\n", s);
+            break;
+        default:
+            printf("error: unknown command %s\n", s);
+            break;
         }
     }
     return 0;
