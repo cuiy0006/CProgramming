@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include "config.h"
 
 #define MAXOP 100
-#define NUMBER '0'
-#define COMMAND '1'
 
 int getop(char []);
 void push(double);

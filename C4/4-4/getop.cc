@@ -1,8 +1,6 @@
 #include <ctype.h>
 #include <stdio.h>
-
-#define NUMBER '0'
-#define COMMAND '1'
+#include "config.h"
 
 int getch(void);
 void ungetch(int c);
