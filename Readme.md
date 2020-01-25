@@ -1,3 +1,6 @@
+## ENVIRONMENT
+Ubuntu 18.04.2 LTS  
+
 ## BUILD
 ```
 mkdir build
@@ -13,5 +16,5 @@ build/test/test_all
   
 OR  
   
-For some cases needing standard input, manually run executable under their directory
+For some cases requiring standard input, manually run executable under their directories.
 
