@@ -28,6 +28,7 @@ main(){
         case '\n':
             last = pop();
             printf("\t%.8g\n", last);
+            break;
 
         case NUMBER:
             push(atof(s));

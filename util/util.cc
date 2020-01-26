@@ -1,5 +1,6 @@
 #include "util.h"
 #include <iostream>
+#include <stdio.h>
 
 void reverse(char s[], int start, int end){
     while(start < end){
@@ -50,4 +51,21 @@ int atoi(char s[], int start){
         ++i;
     }
     return sign * res;
+}
+
+int getline(char s[], int lim){
+    int i = 0;
+    char c;
+    while((c = getchar()) != EOF && c != '\n' && i < lim - 1){
+        s[i] = c;
+        ++i;
+    }
+
+    if(c == '\n'){
+        s[i] = c;
+        ++i;
+    }
+
+    s[i] = '\0';
+    return i;
 }
