@@ -43,12 +43,6 @@ main(){
                     push(pop() / op2);
                 else
                     printf("error: zero divisor\n");
-            } else if((strcmp(s, "%") == 0)){
-                op2 = pop();
-                if(op2 != 0.0)
-                    push(fmod(pop(), op2));
-                else
-                    printf("error: zero divisor\n");
             } else if((strcmp(s, "ptop") == 0)){
                 print_top();
             } else if((strcmp(s, "duptop") == 0)){
