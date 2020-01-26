@@ -1,0 +1,1 @@
+add_executable(test_single_char test_single_char.cc stream_op.cc)

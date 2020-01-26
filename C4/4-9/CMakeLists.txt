@@ -1,0 +1,1 @@
+add_executable(test_handle_EOF test_handle_EOF.cc stream_op.cc)

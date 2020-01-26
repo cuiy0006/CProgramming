@@ -1,0 +1,1 @@
+add_executable(test_entire_string test_entire_string.cc stream_op.cc)
