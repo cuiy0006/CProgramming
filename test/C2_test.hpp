@@ -27,27 +27,27 @@ TEST(C2, Q4){
     char s10[] = "123456789";
     char s20[] = "13579";
     squeeze(s10, s20);
-    EXPECT_EQ(0, strcmp(s10, "2468"));
+    EXPECT_STREQ("2468", s10);
 
     char s11[] = "123456789";
     char s21[] = "1199";
     squeeze(s11, s21);
-    EXPECT_EQ(0, strcmp(s11, "2345678"));
+    EXPECT_STREQ("2345678", s11);
 
     char s12[] = "";
     char s22[] = "1199";
     squeeze(s12, s22);
-    EXPECT_EQ(0, strcmp(s12, ""));
+    EXPECT_STREQ("", s12);
 
     char s13[] = "123456789";
     char s23[] = "";
     squeeze(s13, s23);
-    EXPECT_EQ(0, strcmp(s13, "123456789"));
+    EXPECT_STREQ("123456789", s13);
 
     char s14[] = "11335577";
     char s24[] = "15";
     squeeze(s14, s24);
-    EXPECT_EQ(0, strcmp(s14, "3377"));
+    EXPECT_STREQ("3377", s14);
 }
 
 TEST(C2, Q5){

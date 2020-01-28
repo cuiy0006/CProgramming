@@ -53,21 +53,18 @@ TEST(C4, Q2){
 TEST(C4, Q12){
     int n0 = INT_MIN;
     char s0[1024];
-    char expect0[] = "-2147483648";
     itoa_recursive(n0, s0);
-    EXPECT_EQ(0, strcmp(s0, expect0));
+    EXPECT_STREQ("-2147483648", s0);
 
     int n1 = INT_MAX;
     char s1[1024];
-    char expect1[] = "2147483647";
     itoa_recursive(n1, s1);
-    EXPECT_EQ(0, strcmp(s1, expect1));
+    EXPECT_STREQ("2147483647", s1);
 
     int n2 = 0;
     char s2[1024];
-    char expect2[] = "0";
     itoa_recursive(n2, s2);
-    EXPECT_EQ(0, strcmp(s2, expect2));
+    EXPECT_STREQ("0", s2);
 }
 
 TEST(C4, Q13){

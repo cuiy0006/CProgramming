@@ -30,57 +30,49 @@ TEST(C3, Q2){
     char s[] = "abc\nd e\tfgh";
     char t1[20];
     char t2[20];
-    char expect1[] = "abc\\nd e\\tfgh";
     escape(s, t1);
     escape_reverse(t1, t2);
-    EXPECT_EQ(0, strcmp(t1, expect1));
-    EXPECT_EQ(0, strcmp(t2, s));
+    EXPECT_STREQ("abc\\nd e\\tfgh", t1);
+    EXPECT_STREQ(s, t2);
 }
 
 TEST(C3, Q3){
     char s1_0[] = "a-b-c";
     char s2_0[1024];
-    char expect_0[] = "abc";
     expand(s1_0, s2_0);
-    EXPECT_EQ(0, strcmp(s2_0, expect_0));
+    EXPECT_STREQ("abc", s2_0);
 
     char s1_1[] = "a-z0-9";
     char s2_1[1024];
-    char expect_1[] = "abcdefghijklmnopqrstuvwxyz0123456789";
     expand(s1_1, s2_1);
-    EXPECT_EQ(0, strcmp(s2_1, expect_1));
+    EXPECT_STREQ("abcdefghijklmnopqrstuvwxyz0123456789", s2_1);
 
     char s1_2[] = "---a-z----";
     char s2_2[1024];
-    char expect_2[] = "---abcdefghijklmnopqrstuvwxyz----";
     expand(s1_2, s2_2);
-    EXPECT_EQ(0, strcmp(s2_2, expect_2));
+    EXPECT_STREQ("---abcdefghijklmnopqrstuvwxyz----", s2_2);
 
     char s1_3[] = "--a-d0-3E-G--";
     char s2_3[1024];
-    char expect_3[] = "--abcd0123EFG--";
     expand(s1_3, s2_3);
-    EXPECT_EQ(0, strcmp(s2_3, expect_3));
+    EXPECT_STREQ("--abcd0123EFG--", s2_3);
 }
 
 TEST(C3, Q4){
     int n0 = INT_MIN;
     char s0[1024];
-    char expect0[] = "-2147483648";
     itoa(n0, s0);
-    EXPECT_EQ(0, strcmp(s0, expect0));
+    EXPECT_STREQ("-2147483648", s0);
 
     int n1 = INT_MAX;
     char s1[1024];
-    char expect1[] = "2147483647";
     itoa(n1, s1);
-    EXPECT_EQ(0, strcmp(s1, expect1));
+    EXPECT_STREQ("2147483647", s1);
 
     int n2 = 0;
     char s2[1024];
-    char expect2[] = "0";
     itoa(n2, s2);
-    EXPECT_EQ(0, strcmp(s2, expect2));
+    EXPECT_STREQ("0", s2);
 }
 
 TEST(C3, Q5){
@@ -88,15 +80,12 @@ TEST(C3, Q5){
     char s0_2[1024];
     char s0_8[1024];
     char s0_16[1024];
-    char expect0_2[] = "-10000000000000000000000000000000";
-    char expect0_8[] = "-20000000000";
-    char expect0_16[] = "-80000000";
     itob(n0, s0_2, 2);
     itob(n0, s0_8, 8);
     itob(n0, s0_16, 16);
-    EXPECT_EQ(0, strcmp(s0_2, expect0_2));
-    EXPECT_EQ(0, strcmp(s0_8, expect0_8));
-    EXPECT_EQ(0, strcmp(s0_16, expect0_16));
+    EXPECT_STREQ("-10000000000000000000000000000000", s0_2);
+    EXPECT_STREQ("-20000000000", s0_8);
+    EXPECT_STREQ("-80000000", s0_16);
 
     int n1 = 1234567890;
     char s1_2[1024];
@@ -109,33 +98,29 @@ TEST(C3, Q5){
     itob(n1, s1_2, 2);
     itob(n1, s1_8, 8);
     itob(n1, s1_16, 16);
-    EXPECT_EQ(0, strcmp(s1_2, expect1_2));
-    EXPECT_EQ(0, strcmp(s1_8, expect1_8));
-    EXPECT_EQ(0, strcmp(s1_16, expect1_16));
+    EXPECT_STREQ("1001001100101100000001011010010", s1_2);
+    EXPECT_STREQ("11145401322", s1_8);
+    EXPECT_STREQ("499602d2", s1_16);
 }
 
 TEST(C3, Q6){
     int n0 = INT_MIN;
     char s0[1024];
-    char expect0[] = "    -2147483648";
     itoa_width(n0, s0, 15);
-    EXPECT_EQ(0, strcmp(s0, expect0));
+    EXPECT_STREQ("    -2147483648", s0);
 
     int n1 = INT_MAX;
     char s1[1024];
-    char expect1[] = "     2147483647";
     itoa_width(n1, s1, 15);
-    EXPECT_EQ(0, strcmp(s1, expect1));
+    EXPECT_STREQ("     2147483647", s1);
 
     int n2 = 0;
     char s2[1024];
-    char expect2[] = " 0";
     itoa_width(n2, s2, 2);
-    EXPECT_EQ(0, strcmp(s2, expect2));
+    EXPECT_STREQ(" 0", s2);
 
     int n3 = -1024;
     char s3[1024];
-    char expect3[] = "-1024";
     itoa_width(n3, s3, 5);
-    EXPECT_EQ(0, strcmp(s3, expect3));
+    EXPECT_STREQ("-1024", s3);
 }
