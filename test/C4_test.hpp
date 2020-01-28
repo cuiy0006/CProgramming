@@ -2,6 +2,8 @@
 #include <string.h>
 #include "../C4/4-1/strrindex.h"
 #include "../C4/4-2/atof.h"
+#include "../C4/4-12/itoa_recursive.h"
+#include "../C4/4-13/reverse_recursive.h"
 
 TEST(C4, Q1){
     char s0[] = "123abc123abc123";
@@ -46,4 +48,38 @@ TEST(C4, Q2){
 
     char s6[] = "-123.45e-0";
     EXPECT_EQ(-123.45, atof(s6));
+}
+
+TEST(C4, Q12){
+    int n0 = INT_MIN;
+    char s0[1024];
+    char expect0[] = "-2147483648";
+    itoa_recursive(n0, s0);
+    EXPECT_EQ(0, strcmp(s0, expect0));
+
+    int n1 = INT_MAX;
+    char s1[1024];
+    char expect1[] = "2147483647";
+    itoa_recursive(n1, s1);
+    EXPECT_EQ(0, strcmp(s1, expect1));
+
+    int n2 = 0;
+    char s2[1024];
+    char expect2[] = "0";
+    itoa_recursive(n2, s2);
+    EXPECT_EQ(0, strcmp(s2, expect2));
+}
+
+TEST(C4, Q13){
+    char s0[] = "12345";
+    reverse_recursive(s0);
+    EXPECT_STREQ("54321", s0);
+
+    char s1[] = "";
+    reverse_recursive(s1);
+    EXPECT_STREQ("", s1);
+
+    char s2[] = "1234";
+    reverse_recursive(s2);
+    EXPECT_STREQ("4321", s2);
 }

@@ -25,7 +25,9 @@ add_executable(test_all
                 ../C3/3-5/itob.cc
                 ../C3/3-6/itoa_width.cc
                 ../C4/4-1/strrindex.cc
-                ../C4/4-2/atof.cc)
+                ../C4/4-2/atof.cc
+                ../C4/4-12/itoa_recursive.cc
+                ../C4/4-13/reverse_recursive.cc)
 target_include_directories(test_all PUBLIC
                            ../util/
                            )
