@@ -1,0 +1,1 @@
+#define swap(t, x, y) do {t tmp = x; x = y; y = tmp;} while(0)

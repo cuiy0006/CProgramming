@@ -4,6 +4,7 @@
 #include "../C4/4-2/atof.h"
 #include "../C4/4-12/itoa_recursive.h"
 #include "../C4/4-13/reverse_recursive.h"
+#include "../C4/4-14/swap_macro.h"
 
 TEST(C4, Q1){
     char s0[] = "123abc123abc123";
@@ -79,4 +80,27 @@ TEST(C4, Q13){
     char s2[] = "1234";
     reverse_recursive(s2);
     EXPECT_STREQ("4321", s2);
+}
+
+TEST(C4, Q14){
+    int i = 0;
+    int j = 1;
+    swap(int, i, j);
+    EXPECT_EQ(1, i);
+    EXPECT_EQ(0, j);
+
+    double m = 0.01;
+    double n = 10.10;
+    swap(double, m, n);
+    EXPECT_EQ(10.10, m);
+    EXPECT_EQ(0.01, n);
+
+    char c1 = 'a';
+    char c2 = 'b';
+    char* s1 = &c1;
+    char* s2 = &c2;
+    swap(char*, s1, s2);
+    EXPECT_EQ('b', *s1);
+    EXPECT_EQ('a', *s2);
+
 }
