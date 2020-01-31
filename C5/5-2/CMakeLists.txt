@@ -1,0 +1,1 @@
+add_executable(getfloat_1 getfloat_main.cc getfloat.cc stream_op.cc)

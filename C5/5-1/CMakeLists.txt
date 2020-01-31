@@ -1,0 +1,1 @@
+add_executable(getint_1 getint_main.cc getint.cc stream_op.cc)

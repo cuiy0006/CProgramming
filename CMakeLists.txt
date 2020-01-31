@@ -31,5 +31,6 @@ project(CProgramming)
 add_subdirectory(C1)
 add_subdirectory(C2)
 add_subdirectory(C4)
+add_subdirectory(C5)
 
 add_subdirectory(test)
