@@ -1,0 +1,1 @@
+void itoa_width_p(int n, char* s, int w);

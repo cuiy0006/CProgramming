@@ -30,7 +30,13 @@ add_executable(test_all
                 ../C4/4-13/reverse_recursive.cc
                 ../C5/5-3/strcat_p.cc
                 ../C5/5-4/strend.cc
-                ../C5/5-5/str_op.cc)
+                ../C5/5-5/str_op.cc
+                ../C5/5-6/atoi_p.cc
+                ../C5/5-6/itoa_p.cc
+                ../C5/5-6/reverse_p.cc
+                ../C5/5-6/itob_p.cc
+                ../C5/5-6/itoa_width_p.cc
+                ../C5/5-6/strindex_p.cc)
 target_include_directories(test_all PUBLIC
                            ../util/
                            )
