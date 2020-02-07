@@ -9,7 +9,7 @@ int getline(char* s, int lim){
         ++i;
     }
 
-    if(c == '\n'){
+    if(i < lim - 1 && c == '\n'){
         *s++ = c;
         ++i;
     }

@@ -1,0 +1,1 @@
+add_executable(test_readlines test_readlines.cc readlines.cc ../../util/util.cc ../../util/memory_op.cc)
