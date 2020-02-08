@@ -8,6 +8,7 @@
 #include "../C5/5-6/itob_p.h"
 #include "../C5/5-6/itoa_width_p.h"
 #include "../C5/5-6/strindex_p.h"
+#include "../C5/5-8/year_month_day_conversion.h"
 
 
 TEST(C5, Q3){
@@ -172,7 +173,7 @@ TEST(C5, Q6_itob_p){
     EXPECT_STREQ("499602d2", s1_16);
 }
 
-TEST(C3, Q6_itoa_width_p){
+TEST(C5, Q6_itoa_width_p){
     int n0 = INT_MIN;
     char s0[1024];
     itoa_width_p(n0, s0, 15);
@@ -194,7 +195,7 @@ TEST(C3, Q6_itoa_width_p){
     EXPECT_STREQ("-1024", s3);
 }
 
-TEST(C3, Q6_strindex_p){
+TEST(C5, Q6_strindex_p){
     char s0[] = "1234567";
     char t0[] = "345";
     EXPECT_EQ(2, strindex_p(s0, t0));
@@ -218,4 +219,23 @@ TEST(C3, Q6_strindex_p){
     char s5[] = "1234567";
     char t5[] = "";
     EXPECT_EQ(-1, strindex_p(s5, t5));
+}
+
+TEST(C5, Q8_day_of_year){
+    EXPECT_EQ(-1, day_of_year(-1, 9, 10));
+    EXPECT_EQ(-1, day_of_year(1989, -1, 10));
+    // EXPECT_EQ(-1, day_of_year(1989, 9, -1));
+    // EXPECT_EQ(-1, day_of_year(1800, 2, 29));
+    // EXPECT_EQ(-1, day_of_year(1800, 13, 13));
+}
+
+TEST(C5, Q8_month_day){
+    int month;
+    int day;
+    month_day(-1, 188, &month, &day);
+    EXPECT_EQ(-1, month);
+    month_day(1989, 366, &month, &day);
+    EXPECT_EQ(-1, month);
+    month_day(2020, 367, &month, &day);
+    EXPECT_EQ(-1, month);
 }
