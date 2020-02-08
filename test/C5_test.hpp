@@ -224,9 +224,9 @@ TEST(C5, Q6_strindex_p){
 TEST(C5, Q8_day_of_year){
     EXPECT_EQ(-1, day_of_year(-1, 9, 10));
     EXPECT_EQ(-1, day_of_year(1989, -1, 10));
-    // EXPECT_EQ(-1, day_of_year(1989, 9, -1));
-    // EXPECT_EQ(-1, day_of_year(1800, 2, 29));
-    // EXPECT_EQ(-1, day_of_year(1800, 13, 13));
+    EXPECT_EQ(-1, day_of_year(1989, 9, -1));
+    EXPECT_EQ(-1, day_of_year(1800, 2, 29));
+    EXPECT_EQ(-1, day_of_year(1800, 13, 13));
 }
 
 TEST(C5, Q8_month_day){
