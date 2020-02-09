@@ -9,6 +9,7 @@
 #include "../C5/5-6/itoa_width_p.h"
 #include "../C5/5-6/strindex_p.h"
 #include "../C5/5-8/year_month_day_conversion.h"
+#include "../C5/5-9/year_month_day_conversion_p.h"
 
 
 TEST(C5, Q3){
@@ -238,4 +239,26 @@ TEST(C5, Q8_month_day){
     EXPECT_EQ(-1, month);
     month_day(2020, 367, &month, &day);
     EXPECT_EQ(-1, month);
+}
+
+TEST(C5, Q9_day_of_year_p){
+    EXPECT_EQ(day_of_year(1989, 9, 10), day_of_year_p(1989, 9, 10));
+    EXPECT_EQ(day_of_year(2020, 9, 10), day_of_year(2020, 9, 10));
+}
+
+TEST(C5, Q9_month_day_p){
+    int month_p;
+    int day_p;
+    int month;
+    int day;
+
+    month_day(1989, 188, &month, &day);
+    month_day_p(1989, 188, &month_p, &day_p);
+    EXPECT_EQ(month, month_p);
+    EXPECT_EQ(day, day_p);
+
+    month_day(2020, 188, &month, &day);
+    month_day_p(2020, 188, &month_p, &day_p);
+    EXPECT_EQ(month, month_p);
+    EXPECT_EQ(day, day_p);
 }
