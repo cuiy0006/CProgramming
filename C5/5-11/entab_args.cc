@@ -1,5 +1,28 @@
-#include <getline.h>
 #include <stdio.h>
+
+#define MAXLINE 1000
+
+void printline(char s[], int lim);
+int getline(char s[], int lim);
+
+int main(){
+    char s[MAXLINE];
+    int len;
+    while((len = getline(s, MAXLINE)) != 0){
+        printf("%d: ", len);
+        printline(s, MAXLINE);
+        putchar('\n');
+    }
+}
+
+void printline(char s[], int lim){
+    for(int i = 0; i < lim; ++i){
+        if(s[i] == '\0'){
+            break;
+        }
+        putchar(s[i]);
+    }
+}
 
 #define TABSIZE 7
 

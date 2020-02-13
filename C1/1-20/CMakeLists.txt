@@ -1,5 +1,5 @@
-add_executable(entab entab.cc src/getline.cc src/printline.cc)
+add_executable(detab detab.cc src/getline.cc src/printline.cc)
 
-target_include_directories(entab PRIVATE
+target_include_directories(detab PRIVATE
                            include/
                            )
