@@ -1,14 +1,23 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 #define MAXLINE 1000
 
 void printline(char s[], int lim);
-int getline(char s[], int lim);
+int getline(char s[], int lim, int tabs[], int ltb);
 
-int main(){
+main(int argc, char *argv[]){
+    int tabs[100];
+    int tab_idx = 0;
+    while(--argc > 0){
+        tabs[tab_idx++] = atoi(*++argv);
+    }
+    if(argc != 0){
+        printf("Usage: entab_args i j k ...\n");
+        return 0;    
+    }
     char s[MAXLINE];
     int len;
-    while((len = getline(s, MAXLINE)) != 0){
+    while((len = getline(s, MAXLINE, tabs, tab_idx)) != 0){
         printf("%d: ", len);
         printline(s, MAXLINE);
         putchar('\n');
@@ -26,28 +35,31 @@ void printline(char s[], int lim){
 
 #define TABSIZE 7
 
-int getline(char s[], int lim){
+int getline(char s[], int lim, int tabs[], int ltb){
     int i = 0;
     int offset = 0;
     char c;
+    int tab_idx = 0;
     while((c = getchar()) != EOF && c != '\n' && i < lim - 1){
+        int tabsize = tab_idx < ltb? tabs[tab_idx]: TABSIZE;
         if(c == '\t'){
             int j = i - 1;
-            while(j >= i - TABSIZE + 1 && s[j] == ' '){
+            while(j >= i - tabsize + 1 && s[j] == ' '){
                 --j;
             }
-            if(j == i - 1 && offset == TABSIZE - 1){
+            if(j == i - 1 && offset == tabsize - 1){
                 s[j + 1] = ' ';
             } else {
                 s[j + 1] = '|';
             }
             i = j + 2;
             offset = 0;
+            ++tab_idx;
             continue;
         }
-        if(offset == TABSIZE - 1 && c == ' '){
+        if(offset == tabsize - 1 && c == ' '){
             int j = i - 1;
-            while(j >= i - TABSIZE + 1 && s[j] == ' '){
+            while(j >= i - tabsize + 1 && s[j] == ' '){
                 --j;
             }
             if(j < i - 1){
@@ -57,12 +69,16 @@ int getline(char s[], int lim){
             }
             i = j + 2;
             offset = 0;
+            ++tab_idx;
             continue;
         }
         s[i] = c;
         ++i;
         ++offset;
-        offset = offset % TABSIZE;
+        if(offset == tabsize){
+            offset = 0;
+            ++tab_idx;
+        }
     }
 
     if(c == '\n'){
