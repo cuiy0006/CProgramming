@@ -1,0 +1,1 @@
+add_executable(entab_mn entab_mn.cc)
