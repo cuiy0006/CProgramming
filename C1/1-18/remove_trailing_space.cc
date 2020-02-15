@@ -1,4 +1,4 @@
-#include <remove_trailing_space.h>
+#include "remove_trailing_space.h"
 
 int remove_trailing_space(char s[]){
     int i = 0;

@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <getline.h>
-#include <printline.h>
+#include "getline.h"
+#include "printline.h"
 
 #define MAXLINE 1000
 

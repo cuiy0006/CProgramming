@@ -57,15 +57,22 @@ int getline(char s[], int lim){
     int i = 0;
     char c;
     while((c = getchar()) != EOF && c != '\n' && i < lim - 1){
-        s[i] = c;
-        ++i;
+        s[i++] = c;
     }
 
-    if(c == '\n'){
-        s[i] = c;
-        ++i;
+    if(i < lim - 1 && c == '\n'){
+        s[i++] = c;
     }
 
     s[i] = '\0';
     return i;
+}
+
+void printline(char s[], int lim){
+    for(int i = 0; i < lim; ++i){
+        if(s[i] == '\0'){
+            break;
+        }
+        putchar(s[i]);
+    }
 }

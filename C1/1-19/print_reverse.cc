@@ -1,6 +1,5 @@
-#include <getline.h>
-#include <printline.h>
-#include <reverseline.h>
+#include "reverseline.h"
+#include "../../util/util.h"
 #include <stdio.h>
 
 #define MAXLINE 1000

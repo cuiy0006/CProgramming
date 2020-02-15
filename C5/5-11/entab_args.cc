@@ -42,30 +42,15 @@ int getline(char s[], int lim, int tabs[], int ltb){
     int tab_idx = 0;
     while((c = getchar()) != EOF && c != '\n' && i < lim - 1){
         int tabsize = tab_idx < ltb? tabs[tab_idx]: TABSIZE;
-        if(c == '\t'){
+        if(c == '\t' || (offset == tabsize - 1 && c == ' ')){
             int j = i - 1;
             while(j >= i - tabsize + 1 && s[j] == ' '){
                 --j;
             }
-            if(j == i - 1 && offset == tabsize - 1){
-                s[j + 1] = ' ';
-            } else {
-                s[j + 1] = '|';
-            }
-            i = j + 2;
-            offset = 0;
-            ++tab_idx;
-            continue;
-        }
-        if(offset == tabsize - 1 && c == ' '){
-            int j = i - 1;
-            while(j >= i - tabsize + 1 && s[j] == ' '){
-                --j;
-            }
-            if(j < i - 1){
-                s[j + 1] = '|'; // | -> \t
-            } else {
-                s[j + 1] = ' ';
+            s[j + 1] = '|';
+            if(j == i - 1){
+                if(c == ' ' || (c == '\t' && offset == tabsize - 1))
+                    s[j + 1] = ' ';
             }
             i = j + 2;
             offset = 0;
@@ -81,9 +66,8 @@ int getline(char s[], int lim, int tabs[], int ltb){
         }
     }
 
-    if(c == '\n'){
-        s[i] = c;
-        ++i;
+    if(i < lim - 1 && c == '\n'){
+        s[i++] = c;
     }
 
     s[i] = '\0';

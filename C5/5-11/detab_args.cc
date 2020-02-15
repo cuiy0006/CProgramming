@@ -62,9 +62,8 @@ int getline(char s[], int lim, int tabs[], int ltb){
         }
     }
 
-    if(c == '\n'){
-        s[i] = c;
-        ++i;
+    if(i < lim - 1 && c == '\n'){
+        s[i++] = c;
     }
 
     s[i] = '\0';

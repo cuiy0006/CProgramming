@@ -1,1 +1,0 @@
-void printline(char s[], int lim);
