@@ -1,0 +1,1 @@
+add_executable(tail tail.cc ../../util/util.cc ../../util/memory_op.cc)
