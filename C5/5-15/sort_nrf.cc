@@ -86,8 +86,8 @@ int numcmp(char* s1, char* s2){
 
 int stringcmp(char* s1, char* s2){
     while(*s1 != '\0' || *s2 != '\0'){
-        char c1 = *s1;
-        char c2 = *s2;
+        char c1 = *s1++;
+        char c2 = *s2++;
         if(option & FOLD){
             c1 = isalpha(c1)? tolower(c1): c1;
             c2 = isalpha(c2)? tolower(c2): c2;
@@ -98,8 +98,6 @@ int stringcmp(char* s1, char* s2){
             return 1;
         if(c1 != c2)
             return c1 - c2;
-        ++s1;
-        ++s2;
     }
     return 0;
 }
