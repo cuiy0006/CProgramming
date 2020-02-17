@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "../../util/util.h"
 #include "../../util/memory_op.h"
 #define MAXLINES 5000
@@ -11,10 +12,13 @@ int readlines(char* lineptr[], int maxlines);
 void writelines(char* lineptr[], int nlines);
 void qsort(void* lineptr[], int left, int right, int (*comp)(void*, void*));
 int numcmp(char*, char*);
+int stringcmp(char*, char*);
 
 static char option = 0b00000000;
 #define NUMERIC 0b00000001
 #define REVERSE 0b00000010
+#define FOLD 0b00000100
+#define DICTIONARY 0b00001000
 
 main(int argc, char *argv[]){
     int nlines;
@@ -26,6 +30,10 @@ main(int argc, char *argv[]){
                 option |= NUMERIC;
             } else if(*arg == 'r'){
                 option |= REVERSE;
+            } else if(*arg == 'f'){
+                option |= FOLD;
+            } else if(*arg == 'd'){
+                option |= DICTIONARY;
             }
             ++arg;
         }
@@ -35,7 +43,7 @@ main(int argc, char *argv[]){
         if(option & NUMERIC)
             qsort((void **)lineptr, 0, nlines-1, (int (*)(void *,void *))numcmp);
         else
-            qsort((void **)lineptr, 0, nlines-1, (int (*)(void *,void *))strcmp);
+            qsort((void **)lineptr, 0, nlines-1, (int (*)(void *,void *))stringcmp);
         writelines(lineptr, nlines);
         return 0;
     } else {
@@ -77,6 +85,34 @@ int numcmp(char* s1, char* s2){
         return 1;
     else
         return 0;
+}
+
+int stringcmp(char* s1, char* s2){
+    while(*s1 != '\0' || *s2 != '\0'){
+        if(option & DICTIONARY){
+            while(*s1 != '\0' && !isalnum(*s1) && *s1 != ' '){
+                ++s1;
+            }
+            while(*s2 != '\0' && !isalnum(*s2) && *s2 != ' '){
+                ++s2;
+            }
+            if(*s1 == '\0' && *s2 == '\0')
+                return 0;
+        }
+        char c1 = *s1++;
+        char c2 = *s2++;
+        if(option & FOLD){
+            c1 = isalpha(c1)? tolower(c1): c1;
+            c2 = isalpha(c2)? tolower(c2): c2;
+        } 
+        if(c1 == '\0')
+            return -1;
+        if(c2 == '\0')
+            return 1;
+        if(c1 != c2)
+            return c1 - c2;
+    }
+    return 0;
 }
 
 int readlines(char *lineptr[], int maxlines){

@@ -14,7 +14,7 @@ void qsort(void* lineptr[], int left, int right, int (*comp)(void*, void*));
 int numcmp(char*, char*);
 int stringcmp(char*, char*);
 
-int option = 0b00000000;
+static char option = 0b00000000;
 #define NUMERIC 0b00000001
 #define REVERSE 0b00000010
 #define FOLD 0b00000100
