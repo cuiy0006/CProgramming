@@ -1,0 +1,1 @@
+add_executable(sort_nr sort_nr.cc ../../util/util.cc ../../util/memory_op.cc)
