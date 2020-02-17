@@ -1,0 +1,1 @@
+add_executable(sort_nrf sort_nrf.cc ../../util/util.cc ../../util/memory_op.cc)
