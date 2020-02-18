@@ -55,9 +55,6 @@ main(int argc, char *argv[]){
         }
     }
 
-    printf("%d\n", start);
-    printf("%d\n", end);
-
     if((nlines = readlines(lineptr, MAXLINES)) >= 0){
         if(option & NUMERIC)
             qsort((void **)lineptr, 0, nlines-1, (int (*)(void *,void *))numcmp);
