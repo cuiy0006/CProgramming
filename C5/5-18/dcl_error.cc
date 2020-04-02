@@ -15,6 +15,8 @@ char token[MAXTOKEN];
 char name[MAXTOKEN];
 char datatype[MAXTOKEN];
 char out[1000];
+bool errored = false;
+void handle_error(char* msg);
 
 
 int main(){
@@ -45,11 +47,11 @@ void dirdcl(void){
     if(tokentype == '('){
         dcl();
         if(tokentype != ')')
-            printf("error: missing )\n");
+            handle_error("error: missing )\n");
     } else if(tokentype == NAME)
         strcpy(name, token);
     else
-        printf("error: expected name or (dcl)\n");
+        handle_error("error: expected name or (dcl)\n");
     while((type = gettoken()) == PARENS || type == BRACKETS){
         if(type == PARENS)
             strcat(out, " function returning");
@@ -63,6 +65,10 @@ void dirdcl(void){
 
 
 int gettoken(void){
+    if(errored){
+        errored = false;
+        return tokentype;
+    }
     int c;
     char* p = token;
     while((c = getch()) == ' ' || c == '\t')
@@ -88,4 +94,9 @@ int gettoken(void){
         return tokentype = NAME;
     } else
         return tokentype = c;
+}
+
+void handle_error(char* msg){
+    errored = true;
+    printf("%s", msg);
 }
