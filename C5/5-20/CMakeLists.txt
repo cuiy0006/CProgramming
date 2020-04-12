@@ -1,0 +1,1 @@
+add_executable(dcl_expand dcl_expand.cc gettoken.cc parmdcl.cc ../../util/stream_op.cc)

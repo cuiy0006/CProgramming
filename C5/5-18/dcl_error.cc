@@ -16,7 +16,7 @@ char name[MAXTOKEN];
 char datatype[MAXTOKEN];
 char out[1000];
 bool errored = false;
-void handle_error(char* msg);
+void handle_error(const char* msg);
 
 
 int main(){
@@ -96,7 +96,7 @@ int gettoken(void){
         return tokentype = c;
 }
 
-void handle_error(char* msg){
+void handle_error(const char* msg){
     errored = true;
     printf("%s", msg);
 }
