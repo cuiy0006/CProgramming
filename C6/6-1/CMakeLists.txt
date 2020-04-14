@@ -1,0 +1,1 @@
+add_executable(wordCount wordCount.cc ../../util/stream_op.cc)
