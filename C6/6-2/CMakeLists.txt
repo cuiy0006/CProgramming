@@ -1,0 +1,1 @@
+add_executable(countSamePrefix countSamePrefix.cc ../../util/stream_op.cc)
