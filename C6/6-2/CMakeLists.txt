@@ -1,1 +1,1 @@
-add_executable(countSamePrefix countSamePrefix.cc ../../util/stream_op.cc)
+add_executable(count_same_prefix count_same_prefix.cc ../../util/stream_op.cc)
