@@ -1,0 +1,1 @@
+add_executable(word_frequency word_frequency.cc ../../util/stream_op.cc)
