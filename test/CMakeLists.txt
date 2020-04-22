@@ -38,7 +38,8 @@ add_executable(test_all
                 ../C5/5-6/itoa_width_p.cc
                 ../C5/5-6/strindex_p.cc
                 ../C5/5-8/year_month_day_conversion.cc
-                ../C5/5-9/year_month_day_conversion_p.cc)
+                ../C5/5-9/year_month_day_conversion_p.cc
+                ../C6/6-5/undef.cc)
 target_include_directories(test_all PUBLIC
                            ../util/
                            )
