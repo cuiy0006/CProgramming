@@ -26,8 +26,10 @@ main(){
         strncpy(define, line + i, 6);
         define[6] = '\0';
 
-        if(strcmp(define, "#undef") == 0)
+        if(strcmp(define, "#undef") == 0){
             do_undef(line, len, i + 6);
+            continue;
+        }
 
         strncpy(define, line + i, 7);
         define[7] = '\0';
