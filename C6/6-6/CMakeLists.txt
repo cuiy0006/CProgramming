@@ -1,0 +1,1 @@
+add_executable(define_processor define_processor.cc ../../util/stream_op.cc ../../util/util.cc ../6-5/undef.cc)
