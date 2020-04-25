@@ -4,16 +4,15 @@
 
 int main(int argc, char *argv[]){
     if(argc != 2)
-        return 0;
+        return -1;
     
-    char* cmd = argv[1];
-    bool is_to_upper = true;
-    if(strcmp(cmd, "toupper") == 0)
+    bool is_to_upper;
+    if(strcmp(argv[1], "toupper") == 0)
         is_to_upper = true;
-    else if(strcmp(cmd, "tolower") == 0)
+    else if(strcmp(argv[1], "tolower") == 0)
         is_to_upper = false;
     else
-        return 0;
+        return -1;
 
     int c;
     while((c = getchar()) != EOF){
