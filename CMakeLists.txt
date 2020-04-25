@@ -33,5 +33,6 @@ add_subdirectory(C2)
 add_subdirectory(C4)
 add_subdirectory(C5)
 add_subdirectory(C6)
+add_subdirectory(C7)
 
 add_subdirectory(test)
