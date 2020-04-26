@@ -1,0 +1,1 @@
+add_executable(calculator_scanf calculator_scanf.cc getop.cc stream_op.cc double_stack.cc)
