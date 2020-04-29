@@ -1,0 +1,1 @@
+bool diff_file(const char* file1_path, const char* file2_path, char* diff_line1, char* diff_line2);
