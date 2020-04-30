@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../C7/7-6/diff_file.h"
+#include "../C7/7-9/is_upper.h"
 
 TEST(C7, Q1){
     char diff_line1[1000];
@@ -11,4 +12,15 @@ TEST(C7, Q1){
     EXPECT_STREQ("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n", diff_line2);
 
     EXPECT_TRUE(diff_file("../test/resources/filec0", "../test/resources/filec1", diff_line1, diff_line2));
+}
+
+TEST(C7, Q9){
+    EXPECT_FALSE(is_upper_save_time('a'));
+    EXPECT_FALSE(is_upper_save_space('a'));
+
+    EXPECT_FALSE(is_upper_save_time('@'));
+    EXPECT_FALSE(is_upper_save_space('@'));
+
+    EXPECT_TRUE(is_upper_save_time('A'));
+    EXPECT_TRUE(is_upper_save_space('A'));
 }
