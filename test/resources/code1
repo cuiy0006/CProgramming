@@ -1,0 +1,13 @@
+char a = 'a';
+char b = 'b';
+
+switch(a){
+    case 'a':
+        const char c = 'c';
+        break;
+    case 'b':
+        while(b != 'c'){
+            break;
+        }
+        break;
+}

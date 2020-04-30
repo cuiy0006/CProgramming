@@ -1,0 +1,10 @@
+auto v = new std::vector<int>();
+const int i = 10;
+const char c = 'b';
+
+while(i-- > 0){
+    if(c == 'b')
+        continue;
+    else
+        unsigned char d = 'c';
+}
