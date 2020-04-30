@@ -1,1 +1,0 @@
-add_executable(tttt test.cc a.cc b.cc)
