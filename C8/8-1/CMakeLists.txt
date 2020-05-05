@@ -1,0 +1,1 @@
+add_executable(cat2 cat2.cc)
