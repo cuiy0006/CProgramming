@@ -13,12 +13,12 @@ main(int argc, char* argv[]){
         filecopy(0, 1);
     else
         while (--argc > 0){
-            if((fd = open(*++argv, O_RDONLY, 0)) > 0){
-                filecopy(fd, 1);
-                close(fd);
-            } else {
+            if((fd = open(*++argv, O_RDONLY, 0)) == -1){
                 printf("cat: can't open %s\n", *argv);
                 return 1;
+            } else {
+                filecopy(fd, 1);
+                close(fd);
             }
         }
     return 0;
