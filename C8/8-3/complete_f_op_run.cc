@@ -11,9 +11,9 @@ void test_rewrite_speed(int& cnt){
         cnt++;
         putc(c, fp2);
     }
-    fflush(fp2);
-    fclose(fp);
-    fclose(fp2);
+    assert(fflush(fp2) != -1);
+    assert(fclose(fp) != -1);
+    assert(fclose(fp2) != -1);
     assert(fp->cnt == 0);
     assert(fp->base == NULL);
     assert(fp->ptr == NULL);

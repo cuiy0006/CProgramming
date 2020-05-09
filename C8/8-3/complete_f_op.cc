@@ -93,6 +93,7 @@ int _flushbuf(int x, FILE* fp){
 }
 
 int fclose(FILE* fp){
+    fflush(fp);
     free(fp->base);
     fp->base = NULL;
     fp->ptr = NULL;
