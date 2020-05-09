@@ -29,8 +29,8 @@ extern FILE _iob[OPEN_MAX];
 
 int _fillbuf(FILE*);
 
-#define feof(p) (((p)->flag & _EOF) != 0)
-#define ferror(p) (((p)->flag & _ERR) != 0)
+#define feof(p) (((p)->flag._EOF) != 0)
+#define ferror(p) (((p)->flag._ERR) != 0)
 #define fileno(p) ((p)->fd)
 
 #define getc(p) (--(p)->cnt >= 0 \
