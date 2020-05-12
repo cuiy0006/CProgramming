@@ -1,0 +1,1 @@
+add_executable(test_added_fseek_run test_added_fseek_run.cc added_fseek_run.cc added_fseek.cc)
