@@ -4,7 +4,8 @@
 #include <time.h>
 
 // read(dp->fd, (char*) &dirbuf, sizeof(dirbuf)) == sizeof(dirbuf) does not work on Ubuntu,
-// cannot read from directory fd, so use standard lib instead
+// https://stackoverflow.com/questions/17618472/using-read-system-call-on-a-directory
+// so use standard lib instead
 #include <dirent.h>
 
 
