@@ -85,8 +85,8 @@ void free_2(void* ap){
         return;
     }
 
-    if(byte_size == 0){
-        printf("Requested to free size is 0\n");
+    if(byte_size <= 0){
+        printf("Requested to free size is not larger than 0\n");
         return;
     }
 
