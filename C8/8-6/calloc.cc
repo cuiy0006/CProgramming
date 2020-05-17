@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "calloc.h"
-#include <stdio.h>
 
 #define NALLOC 1024
 

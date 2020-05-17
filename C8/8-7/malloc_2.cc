@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "malloc_2.h"
-#include <stdio.h>
 
 #define NALLOC 1024
 #define MAXALLOC 10000000
