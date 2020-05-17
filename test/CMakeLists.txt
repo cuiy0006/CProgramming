@@ -42,7 +42,8 @@ add_executable(test_all
                 ../C6/6-5/undef.cc
                 ../C7/7-6/diff_file.cc
                 ../C8/8-6/calloc.cc
-                ../C8/8-7/malloc_2.cc)
+                ../C8/8-7/malloc_2.cc
+                ../C8/8-8/bfree_3.cc)
 target_include_directories(test_all PUBLIC
                            ../util/
                            )

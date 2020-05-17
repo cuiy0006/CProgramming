@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "../C8/8-6/calloc.h"
 #include "../C8/8-7/malloc_2.h"
+#include "../C8/8-8/bfree_3.h"
 #include <stdio.h>
 
 
@@ -80,13 +81,28 @@ TEST(C8, Q7){
 
     char* str1 = (char*)malloc_2(10000000);
     EXPECT_TRUE(str1 != NULL);
-    header* hp = (header*)str1 - 1;
+    union header* hp = (union header*)str1 - 1;
     hp->s.size = 1;
     free_2(str1);
 
     char* str2 = (char*)malloc_2(10000000);
     EXPECT_TRUE(str2 != NULL);
-    hp = (header*)str2 - 1;
+    hp = (union header*)str2 - 1;
     hp->s.size += 1;
     free_2(str2);
+}
+
+TEST(C8, Q8){
+    static char str[1024];
+    int n = bfree_3(str, 31);
+    EXPECT_EQ(0, n);
+
+    n = bfree_3(str, 32);
+    EXPECT_EQ(32 - sizeof(union header), n);
+    
+    static int arr[1024];
+    n = bfree_3(arr, 1024 * sizeof(int));
+    EXPECT_EQ(1024 * sizeof(int) - sizeof(union header), n);
+
+    malloc_3(4000);
 }
