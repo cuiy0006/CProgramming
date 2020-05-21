@@ -5,5 +5,8 @@ main(){
     while(((c = getchar()) != EOF) == 1){
         putchar(c);
     }
-    putchar('0');
+    if((c != EOF) == 0)
+        printf("verified!\n");
+    else
+        printf("unverified!\n");
 }
