@@ -1,25 +1,28 @@
 #include <stdio.h>
 
-#define out 0
 #define in 1
+#define out 0
 
 int main(){
-    char c;
-    int state = out;
-    int cc = 0, wc = 0, lc = 0;
+    char c, nl, nw, nc, state;
+
+    state = out;
+    nl = nw = nc = 0;
     while((c = getchar()) != EOF){
-        ++cc;
+        ++nc;
+
+        if(c == '\n'){
+            ++nl;
+        }
         if(c == ' ' || c == '\t' || c == '\n'){
             state = out;
         } else if(state == out){
-            ++wc;
+            ++nw;
             state = in;
-        }
-
-        if(c == '\n'){
-            ++lc;
         }
     }
 
-    printf("cc: %d, wc: %d, lc: %d", cc, wc, lc);
+    printf("char count: %d, word count: %d, line count: %d\n", nc, nw, nl);
 }
+
+// one-line input without \n
