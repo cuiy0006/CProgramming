@@ -3,10 +3,7 @@
 #define NASCII 128
 
 int main(){
-    int freq[NASCII];
-    for(int i = 0; i < NASCII; ++i){
-        freq[i] = 0;
-    }
+    int freq[NASCII] = {0};
 
     char c;
     while((c = getchar()) != EOF){

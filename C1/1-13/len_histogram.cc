@@ -3,7 +3,7 @@
 
 int main(){
     int idx = 0;
-    int lengths[100];
+    int lengths[100]; // = {0}
     memset(lengths, 0, sizeof(lengths));
     char c;
     int maxlen = 0;
