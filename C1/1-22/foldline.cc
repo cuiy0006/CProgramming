@@ -13,7 +13,7 @@ int main(){
             continue;
         }
 
-        if(i < LINESIZE){
+        if(i < LINESIZE - 1){
             putchar(c);
             ++i;
         } else {
