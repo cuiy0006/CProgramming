@@ -1,1 +1,1 @@
-add_executable(detab detab.cc getline.cc printline.cc)
+add_executable(detab detab.cc getline.cc)

@@ -23,7 +23,7 @@ int getline(char s[], int lim){
         }
     }
 
-    if(c == '\n'){
+    if(i < lim - 1 && c == '\n'){
         s[i] = c;
         ++i;
     }
