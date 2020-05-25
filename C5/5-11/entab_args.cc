@@ -44,13 +44,12 @@ int getline(char s[], int lim, int tabs[], int ltb){
         int tabsize = tab_idx < ltb? tabs[tab_idx]: TABSIZE;
         if(c == '\t' || (offset == tabsize - 1 && c == ' ')){
             int j = i - 1;
-            while(j >= i - tabsize + 1 && s[j] == ' '){
+            while(j >= 0 && j >= i - tabsize + 1 && s[j] == ' '){
                 --j;
             }
             s[j + 1] = '|';
-            if(j == i - 1){
-                if(c == ' ' || (c == '\t' && offset == tabsize - 1))
-                    s[j + 1] = ' ';
+            if(j == i - 1 && c == ' '){
+                s[j + 1] = ' ';
             }
             i = j + 2;
             offset = 0;
