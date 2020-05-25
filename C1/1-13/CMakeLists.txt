@@ -1,1 +1,2 @@
 add_executable(len_histogram len_histogram.cc)
+add_executable(len_histogram_v len_histogram_v.cc)
