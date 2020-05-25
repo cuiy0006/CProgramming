@@ -1,23 +1,37 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
     int idx = 0;
-    int length = 0;
+    int lengths[100];
+    memset(lengths, 0, sizeof(lengths));
     char c;
+    int maxlen = 0;
+
     while((c = getchar()) != EOF){
         if(c == ' ' || c == '\t' || c == '\n'){
-            if(length != 0){
-                printf("%d: ", idx);
-                for(int i = 0; i < length; ++i){
-                    putchar('\n');
-                    putchar('*');
-                }
-                putchar('\n');
-                length = 0;
-                ++idx;
-            }
+            if(lengths[idx] == 0)
+                continue;
+            maxlen = maxlen > lengths[idx]? maxlen: lengths[idx];
+            ++idx;
         } else {
-            ++length;
+            ++lengths[idx];
         }
+    }
+
+    for(int i = 0; i < idx; ++i){
+        printf("%3d ", i);
+    }
+
+    printf("\n");
+
+    for(int i = 0; i < maxlen; ++i){
+        for(int j = 0; j < idx; ++j){
+            if(lengths[j] > i)
+                printf("  * ");
+            else 
+                printf("    ");
+        }
+        printf("\n");
     }
 }
