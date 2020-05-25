@@ -10,13 +10,12 @@ int getline(char s[], int lim){
     while((c = getchar()) != EOF && c != '\n' && i < lim - 1){
         if(c == '\t' || (offset == TABSIZE - 1 && c == ' ')){
             int j = i - 1;
-            while(j >= i - TABSIZE + 1 && s[j] == ' '){
+            while(j >= 0 && j >= i - TABSIZE + 1 && s[j] == ' '){
                 --j;
             }
             s[j + 1] = '|';
-            if(j == i - 1){
-                if(c == ' ' || (c == '\t' && offset == TABSIZE - 1))
-                    s[j + 1] = ' ';
+            if(j == i - 1 && c == ' '){
+                s[j + 1] = ' ';
             }
             i = j + 2;
             offset = 0;
