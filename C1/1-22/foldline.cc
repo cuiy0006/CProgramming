@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #define LINESIZE 20
+#define MAXLINESIZE 30
 
 int main(){
     char c;
@@ -17,11 +18,17 @@ int main(){
             ++i;
         } else {
             if(c == ' ' || c == '\t'){
-                continue;
-            } else {
                 putchar('\n');
-                putchar(c);
-                i = 1;
+                i = 0;
+            } else {
+                if(i < MAXLINESIZE){
+                    putchar(c);
+                    ++i;
+                } else {
+                    putchar('\n');
+                    putchar(c);
+                    i = 1;
+                }
             }
         }
     }
