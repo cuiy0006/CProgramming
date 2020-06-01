@@ -19,19 +19,19 @@ int main(){
         }
     }
 
-    for(int i = 0; i < idx; ++i){
-        printf("%3d ", i);
-    }
-
-    printf("\n");
-
-    for(int i = 0; i < maxlen; ++i){
+    for(int i = maxlen; i > 0; --i){
         for(int j = 0; j < idx; ++j){
-            if(lengths[j] > i)
+            if(lengths[j] >= i)
                 printf("  * ");
             else 
                 printf("    ");
         }
         printf("\n");
     }
+
+    for(int i = 0; i < idx; ++i){
+        printf("%3d ", i);
+    }
+
+    printf("\n");
 }
